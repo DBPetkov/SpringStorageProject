@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Add new Storage Item</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/registration.css}" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <form th:action="@{/admin/home}">
+        <button class="btn btn-md btn-warning btn-block" type="Submit">Home Page</button>
+    </form>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <form autocomplete="off" action="#" th:action="@{/admin/edit}" th:object="${storage}" method="post"
+                    class="form-horizontal" role="form">
+                    <h2>Item info</h2>
+                         <input type="hidden" th:field="*{id}"/>
+                         <div class="form-group">
+                            Product Name<div class="col-sm-9">
+                            <label th:if="${#fields.hasErrors('productName')}" th:errors="*{productName}" class="validation-message"></label>
+                            <input type="text" th:field="*{productName}" placeholder="Product Name" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            Product Description<div class="col-sm-9">
+                            <label th:if="${#fields.hasErrors('productDescription')}" th:errors="*{productDescription}" class="validation-message"></label>
+                            <input type="text" th:field="*{productDescription}" placeholder="Product Description" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            Product Buy Price<div class="col-sm-9">
+                            <label th:if="${#fields.hasErrors('buyPrice')}" th:errors="*{buyPrice}" class="validation-message"></label>
+                            <input type="number" step="0.01" th:field="*{buyPrice}" placeholder="Buy Price" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            Product Sell Price<div class="col-sm-9">
+                            <label th:if="${#fields.hasErrors('sellPrice')}" th:errors="*{sellPrice}" class="validation-message"></label>
+                            <input type="number" step="0.01" th:field="*{sellPrice}" placeholder="Sell Price" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            Product Count<div class="col-sm-9">
+                            <label th:if="${#fields.hasErrors('productCount')}" th:errors="*{productCount}" class="validation-message"></label>
+                            <input type="number" th:field="*{productCount}" placeholder="Product Count" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            Product Category<div class="col-sm-9">              
+                                <label th:if="${#fields.hasErrors('productCategory')}" th:errors="*{productCategory}" class="validation-message"></label>         
+                                <label class="radio-inline"><input type="radio" value="Groceries" th:field="*{productCategory}">Groceries</label>
+                                <label class="radio-inline"><input type="radio" value="Stationery materials" th:field="*{productCategory}">Stationery materials</label>
+                                <label class="radio-inline"><input type="radio" value="Building materials" th:field="*{productCategory}">Building materials</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            Product Code<div class="col-sm-9">
+                                <label th:if="${#fields.hasErrors('productCode')}" th:errors="*{productCode}" class="validation-message"></label>
+                                <input type="number" th:field="*{productCode}" placeholder="Product Code" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-9">
+                                <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                            </div>
+                        </div>
+                        <h2><span class="text-success" th:utext="${successMessage}"></span></h2>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
