@@ -1,13 +1,3 @@
-# Spring Security Login Tutorial
+# Spring Security University Project
 
-Tutorial / Full Information
-https://medium.com/@gustavo.ponce.ch/spring-boot-spring-mvc-spring-security-mysql-a5d8545d837d
-
-1. mvn clean
-2. mvn clean install
-3. Go to the target folder
-4. java -jar login-0.0.1-SNAPSHOT.jar
-
-
-- http://localhost:8080/registration
-- http://localhost:8080/login
+If you wish to run the prject, change the username and password in application.properties for your local MySQL and create a db named storageProject.
